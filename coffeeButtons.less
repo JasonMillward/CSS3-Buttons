@@ -1,0 +1,99 @@
+/*!
+ *  coffee Buttons Less
+ *
+ *  Modifies bootstrap.less components and adds more for jCode Lab
+ *
+ *  Made it nice and easy to read since it gets compiled by less.js anyway
+ */
+
+
+@tinyFontSize:              10px;
+@smallFontSize:             11px;
+
+@margins:                   ~"margin 0.5s ease";
+
+@colour1:                   #00b7ea;
+@colour2:                   #009ec3; //@colour1 + #E6D9; //#009ec3;
+
+.jbutton {
+    width:                  200px;
+    padding-top:            30px;
+    padding-bottom:         30px;
+}
+.jbutton > a {
+    display:                block;
+    height:                 50px;
+    width:                  200px;
+
+    color:                  white;
+    font:                   17px/50px Helvetica, Verdana, sans-serif;
+    text-decoration:        none;
+    text-align:             center;
+    text-transform:         uppercase;
+    position:               relative;
+    z-index:                5;
+
+    background:             @colour1;
+    background:             -moz-linear-gradient(top, @colour1 0%, @colour2 100%);
+    background:             -webkit-linear-gradient(top, @colour1 0%,@colour2 100%);
+    background:             -o-linear-gradient(top, @colour1 0%,@colour2 100%);
+    background:             -ms-linear-gradient(top, @colour1 0%,@colour2 100%);
+    background:             linear-gradient(top, @colour1 0%,@colour2 100%);
+
+
+    -webkit-border-radius:  10px;
+    -moz-border-radius:     10px;
+    border-radius:          10px;
+    -webkit-box-shadow:     2px 2px 8px rgba(0,0,0,0.2);
+    -moz-box-shadow:        2px 2px 8px rgba(0,0,0,0.2);
+    box-shadow:             2px 2px 8px rgba(0,0,0,0.2);
+}
+
+.jbutton  > p {
+    background:             #222;
+    display:                block;
+    height:                 40px;
+    width:                  180px;
+    margin:                 -50px 0 0 10px;
+    text-align:             center;
+    font:                   12px/45px Helvetica, Verdana, sans-serif;
+    color:                  #fff;
+    position:               absolute;
+    z-index:                0;
+    -webkit-transition:     @margins;
+    -moz-transition:        @margins;
+    -o-transition:          @margins;
+    -ms-transition:         @margins;
+    transition:             @margins;
+    -webkit-border-radius:  10px;
+    -moz-border-radius:     10px;
+    border-radius:          10px;
+    -webkit-box-shadow:     2px 2px 8px rgba(0,0,0,0.2);
+    -moz-box-shadow:        2px 2px 8px rgba(0,0,0,0.2);
+    box-shadow:             2px 2px 8px rgba(0,0,0,0.2);
+}
+
+.jbutton:hover .bottom {
+    margin:                 -10px 0 0 10px;
+}
+.jbutton:hover .top {
+    margin:                 -80px 0 0 10px;
+    line-height:            35px;
+}
+
+.jbutton > a:active {
+    background:             @colour1;
+    background:             -moz-linear-gradient(top,  @colour1 36%, @colour2 100%);
+    background:             -webkit-gradient(linear, left top, left bottom, color-stop(36%,@colour1), color-stop(100%,@colour2));
+    background:             -webkit-linear-gradient(top,  @colour1 36%,@colour2 100%);
+    background:             -o-linear-gradient(top,  @colour1 36%,@colour2 100%);
+    background:             -ms-linear-gradient(top,  @colour1 36%,@colour2 100%);
+    background:             linear-gradient(top,  @colour1 36%,@colour2 100%);
+
+}
+.jbutton:active .bottom {
+    margin:                 -20px 0 0 10px;
+}
+.jbutton:active .top {
+    margin:                 -70px 0 0 10px;
+}

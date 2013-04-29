@@ -9,16 +9,16 @@ if (isset( $_GET['url'] )) {
 
     preg_match ( "/[0-9]{3}/", $headers[0], $matches);
 
-    $httpCode = $matches[0];
+    $httpCode       = $matches[0];
+    $tmp            = explode($httpCode, $headers[0]);
+    $httpResponse   = $tmp[1];
 
-
-    $tmp = explode($httpCode, $headers[0]);
-    $httpResponse = $tmp[1];
-
+    if (!isset($headers['Content-Length'])) {
+        $headers['Content-Length'] = 0;
+    }
 
     $headers['httpCode'] = $httpCode;
     $headers['httpResp'] = $httpResponse;
 
     print json_encode( $headers );
 }
-?>

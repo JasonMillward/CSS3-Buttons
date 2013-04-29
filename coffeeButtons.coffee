@@ -1,6 +1,6 @@
 $ = jQuery
 
-phpProxyUrl = './proxy.php?url='
+phpProxyUrl = './php/proxy.php?url='
 
 Colors =
     # rgb <-> hsl algorithms from
@@ -178,11 +178,9 @@ $.fn.jButton = (options) ->
     @each ->
         button = $( this )
 
-        file   = button.attr( 'file' )
-        button.removeAttr( 'file' )
+        file   = button.data( 'file' )
 
         button.addClass('jbutton')
-
 
         button.append(
             $('<a>').attr('href', file).text('Download')
@@ -192,17 +190,14 @@ $.fn.jButton = (options) ->
             $('<p>').attr( 'class', 'bottom')
         )
 
-        # Create colour scheme for the button
         doTheme( button, options )
 
-
-        # Finally time for the ajax call
         $.ajax({
             type: 'GET',
             url: phpProxyUrl + file,
             dataType: 'json'
             success: (data) ->
-                if data['httpCode'] == '200'
+                if parseInt(data['httpCode']) == 200
                     $('.top', button).text('Type: ' + data['Content-Type'] )
                     $('.bottom', button).text('Size: ' + formatBytes( data['Content-Length'] ) )
                 else
